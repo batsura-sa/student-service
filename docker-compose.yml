@@ -1,0 +1,16 @@
+# docker-compose up -d
+
+version: '3.1'
+
+services:
+  postgres-quarkus:
+    image: postgres:14
+    environment:
+      - POSTGRES_USER=student_appl
+      - POSTGRES_PASSWORD=student_appl
+      - POSTGRES_DB=student_db
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../data/postgres-student:/var/lib/postgresql
